@@ -9,6 +9,46 @@ class PlaylistController {
 		return res.json(playlists);
 	}
 
+	create(req, res) {
+		const playlist = req.body;
+		try {
+			DatabaseService.playlists.push(playlist);
+			return res.sendStatus(200);
+		} catch (e) {
+			return res.sendStatus(500);
+		}
+	}
+
+	update(req, res) {
+		const playlistId = req.params.playlistId;
+		const newplaylist = req.body;
+
+		try {
+			DatabaseService.playlists = DatabaseService.playlists.map((playlist) => {
+				if (playlist.id === playlistId) {
+					return newplaylist;
+				}
+				return playlist;
+			});
+
+			return res.sendStatus(200);
+		} catch (e) {
+			return res.sendStatus(500);
+		}
+	}
+
+	delete(req, res) {
+		const playlistId = req.params.playlistId;
+		try {
+			DatabaseService.playlists = DatabaseService.playlists.filter(
+				(playlist) => playlist.id !== playlistId
+			);
+			return res.json(playlistId);
+		} catch (e) {
+			return res.sendStatus(500);
+		}
+	}
+
 	getSongsByPlaylistId(req, res) {
 		const { playlistId } = req.params;
 		try {
@@ -16,7 +56,10 @@ class PlaylistController {
 				(p) => p.id === parseInt(playlistId)
 			);
 
-			if (!playlist) return res.sendStatus(404);
+			if (!playlist) {
+				return res.sendStatus(404);
+			}
+
 			const songsIds = Array(...new Set(playlist.songs));
 			const songs = songsIds.map((id) =>
 				DatabaseService.songs.find((s) => s.id === id)
