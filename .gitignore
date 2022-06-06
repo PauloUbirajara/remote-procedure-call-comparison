@@ -1,10 +1,8 @@
 rest-api/node_modules/
-rest-api/.vscode
+rest-api/.vscode/
 
-graphql-api/node_modules/
-graphql-api/.vscode
-graphql-api/.idea
-graphql-api/venv
+grpc-api/.vscode/
+grpc-api/.idea/
+grpc-api/venv/
 
-
-.history
+.history/
