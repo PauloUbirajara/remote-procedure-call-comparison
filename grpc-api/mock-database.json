@@ -3,82 +3,67 @@
 		{
 			"id": 0,
 			"name": "Einar",
-			"username": "Minerva55",
-			"playlists": [
-				{ "id": 0, "name": "Zimbabwe", "songs": [0, 2, 3] },
-				{ "id": 1, "name": "Strategist", "songs": [] }
-			]
+			"age": 22,
+			"playlists": [0,1,2]
 		},
 		{
 			"id": 1,
 			"name": "Kylie",
-			"user": "Shannon_Durgan",
-			"playlists": [
-				{ "id": 2, "name": "Analyst", "songs": [1, 4, 5, 6, 7] },
-				{ "id": 3, "name": "Cambridgeshire", "songs": [2, 3] }
-			]
+			"age": 25,
+			"playlists": [1,2]
 		},
 		{
 			"id": 2,
 			"name": "Kyla",
-			"user": "Bethany_Lakin",
-			"playlists": [
-				{ "id": 4, "name": "Centralized", "songs": [2, 3, 12, 13] },
-				{ "id": 5, "name": "Driver", "songs": [0, 6, 9] }
-			]
+			"age": 30,
+			"playlists": [3]
 		},
 		{
 			"id": 3,
 			"name": "Shaniya",
-			"user": "Karine.Cruickshank",
-			"playlists": [
-				{ "id": 4, "name": "Avon", "songs": [8] },
-				{ "id": 5, "name": "Implemented", "songs": [] }
-			]
+			"age": 20,
+			"playlists": [2, 5]
 		},
 		{
 			"id": 4,
 			"name": "Jacynthe",
-			"user": "Queen.Ferry",
-			"playlists": [
-				{ "id": 6, "name": "Granite", "songs": [18, 19, 20] },
-				{ "id": 7, "name": "Generic", "songs": [] }
-			]
+			"age": 50,
+			"playlists": [3,4]
 		}
 	],
 	"playlists": [
 		{
 			"id": 0,
 			"name": "Knife Party",
-			"songs": [3, 4]
+			"musics": [3, 4]
 		},
 		{
 			"id": 1,
 			"name": "As 50 mais tocadas no Brasil",
-			"songs": [5, 6]
+			"musics": [5, 6]
 		},
 		{
 			"id": 2,
 			"name": "Só Track Boa 2020",
-			"songs": [7, 8, 9]
+			"musics": [7, 8, 9]
 		},
 		{
 			"id": 3,
 			"name": "Trap Nation",
-			"songs": [10, 11, 12, 13]
+			"musics": [10, 11, 12, 13]
 		},
 		{
 			"id": 4,
 			"name": "Trap-Rap",
-			"songs": [14, 15, 16, 17]
+			"musics": [14, 15, 16, 17]
 		},
 		{
 			"id": 5,
 			"name": "Power Metal",
-			"songs": [18, 19, 20]
+			"musics": [18, 19, 20]
 		}
 	],
-	"songs": [
+	"musics": [
 		{
 			"id": 0,
 			"name": "Mood (feat.ianndior)",
