@@ -1,2 +1,10 @@
-node_modules/
-.vscode
+rest-api/node_modules/
+rest-api/.vscode
+
+graphql-api/node_modules/
+graphql-api/.vscode
+graphql-api/.idea
+graphql-api/venv
+
+
+.history
