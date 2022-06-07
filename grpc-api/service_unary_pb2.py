@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13service-unary.proto\"\x07\n\x05\x45mpty\"\x1e\n\x10IdGenericRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"\x1f\n\x11IdGenericResponse\x12\n\n\x02id\x18\x01 \x01(\x05\"C\n\x04User\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0b\n\x03\x61ge\x18\x03 \x01(\x05\x12\x14\n\x0cplaylistsIds\x18\x04 \x03(\x05\"7\n\x08Playlist\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tmusicsIds\x18\x04 \x03(\x05\"1\n\x05Music\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04nome\x18\x02 \x01(\t\x12\x0e\n\x06\x61rtist\x18\x03 \x01(\t\"&\n\x0fGetUserResponse\x12\x13\n\x04user\x18\x01 \x01(\x0b\x32\x05.User\"+\n\x13GetAllUsersResponse\x12\x14\n\x05users\x18\x01 \x03(\x0b\x32\x05.User\"8\n\x18GetUserPlaylistsResponse\x12\x1c\n\tplaylists\x18\x01 \x03(\x0b\x32\t.Playlist\"%\n\x0e\x41\x64\x64UserRequest\x12\x13\n\x04user\x18\x01 \x01(\x0b\x32\x05.User\"(\n\x11UpdateUserRequest\x12\x13\n\x04user\x18\x01 \x01(\x0b\x32\x05.User\"2\n\x13GetPlaylistResponse\x12\x1b\n\x08playlist\x18\x01 \x01(\x0b\x32\t.Playlist\"7\n\x17GetAllPlaylistsResponse\x12\x1c\n\tplaylists\x18\x01 \x03(\x0b\x32\t.Playlist\"3\n\x19GetPlaylistMusicsResponse\x12\x16\n\x06musics\x18\x01 \x03(\x0b\x32\x06.Music\"1\n\x12\x41\x64\x64PlaylistRequest\x12\x1b\n\x08playlist\x18\x01 \x01(\x0b\x32\t.Playlist\">\n\x17\x41\x64\x64PlaylistMusicRequest\x12\x12\n\nplaylistId\x18\x01 \x01(\x05\x12\x0f\n\x07musicId\x18\x02 \x01(\x05\"4\n\x15UpdatePlaylistRequest\x12\x1b\n\x08playlist\x18\x01 \x01(\x0b\x32\t.Playlist\")\n\x10GetMusicResponse\x12\x15\n\x05music\x18\x01 \x01(\x0b\x32\x06.Music\".\n\x14GetAllMusicsResponse\x12\x16\n\x06musics\x18\x01 \x03(\x0b\x32\x06.Music\"(\n\x0f\x41\x64\x64MusicRequest\x12\x15\n\x05music\x18\x01 \x01(\x0b\x32\x06.Music\"+\n\x12UpdateMusicRequest\x12\x15\n\x05music\x18\x01 \x01(\x0b\x32\x06.Music2\xca\x08\n\x07Spotify\x12\x30\n\x07GetUser\x12\x11.IdGenericRequest\x1a\x10.GetUserResponse\"\x00\x12-\n\x0bGetAllUsers\x12\x06.Empty\x1a\x14.GetAllUsersResponse\"\x00\x12\x42\n\x10GetUserPlaylists\x12\x11.IdGenericRequest\x1a\x19.GetUserPlaylistsResponse\"\x00\x12\x30\n\x07\x41\x64\x64User\x12\x0f.AddUserRequest\x1a\x12.IdGenericResponse\"\x00\x12\x36\n\nUpdateUser\x12\x12.UpdateUserRequest\x1a\x12.IdGenericResponse\"\x00\x12\x35\n\nDeleteUser\x12\x11.IdGenericRequest\x1a\x12.IdGenericResponse\"\x00\x12\x38\n\x0bGetPlaylist\x12\x11.IdGenericRequest\x1a\x14.GetPlaylistResponse\"\x00\x12\x35\n\x0fGetAllPlaylists\x12\x06.Empty\x1a\x18.GetAllPlaylistsResponse\"\x00\x12\x44\n\x11GetPlaylistMusics\x12\x11.IdGenericRequest\x1a\x1a.GetPlaylistMusicsResponse\"\x00\x12\x38\n\x0b\x41\x64\x64Playlist\x12\x13.AddPlaylistRequest\x1a\x12.IdGenericResponse\"\x00\x12\x42\n\x10\x41\x64\x64PlaylistMusic\x12\x18.AddPlaylistMusicRequest\x1a\x12.IdGenericResponse\"\x00\x12>\n\x0eUpdatePlaylist\x12\x16.UpdatePlaylistRequest\x1a\x12.IdGenericResponse\"\x00\x12\x39\n\x0e\x44\x65letePlaylist\x12\x11.IdGenericRequest\x1a\x12.IdGenericResponse\"\x00\x12>\n\x13\x44\x65letePlaylistMusic\x12\x11.IdGenericRequest\x1a\x12.IdGenericResponse\"\x00\x12\x32\n\x08GetMusic\x12\x11.IdGenericRequest\x1a\x11.GetMusicResponse\"\x00\x12/\n\x0cGetAllMusics\x12\x06.Empty\x1a\x15.GetAllMusicsResponse\"\x00\x12\x32\n\x08\x41\x64\x64Music\x12\x10.AddMusicRequest\x1a\x12.IdGenericResponse\"\x00\x12\x38\n\x0bUpdateMusic\x12\x13.UpdateMusicRequest\x1a\x12.IdGenericResponse\"\x00\x12\x36\n\x0b\x44\x65leteMusic\x12\x11.IdGenericRequest\x1a\x12.IdGenericResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13service-unary.proto\"\x07\n\x05\x45mpty\"\x1e\n\x10IdGenericRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"\x1f\n\x11IdGenericResponse\x12\n\n\x02id\x18\x01 \x01(\x05\"C\n\x04User\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0b\n\x03\x61ge\x18\x03 \x01(\x05\x12\x14\n\x0cplaylistsIds\x18\x04 \x03(\x05\"7\n\x08Playlist\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tmusicsIds\x18\x04 \x03(\x05\"1\n\x05Music\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04nome\x18\x02 \x01(\t\x12\x0e\n\x06\x61rtist\x18\x03 \x01(\t\"&\n\x0fGetUserResponse\x12\x13\n\x04user\x18\x01 \x01(\x0b\x32\x05.User\"+\n\x13GetAllUsersResponse\x12\x14\n\x05users\x18\x01 \x03(\x0b\x32\x05.User\"8\n\x18GetUserPlaylistsResponse\x12\x1c\n\tplaylists\x18\x01 \x03(\x0b\x32\t.Playlist\"%\n\x0e\x41\x64\x64UserRequest\x12\x13\n\x04user\x18\x01 \x01(\x0b\x32\x05.User\"(\n\x11UpdateUserRequest\x12\x13\n\x04user\x18\x01 \x01(\x0b\x32\x05.User\"2\n\x13GetPlaylistResponse\x12\x1b\n\x08playlist\x18\x01 \x01(\x0b\x32\t.Playlist\"7\n\x17GetAllPlaylistsResponse\x12\x1c\n\tplaylists\x18\x01 \x03(\x0b\x32\t.Playlist\"3\n\x19GetPlaylistMusicsResponse\x12\x16\n\x06musics\x18\x01 \x03(\x0b\x32\x06.Music\"@\n GetAllPlaylistsWithMusicResponse\x12\x1c\n\tplaylists\x18\x01 \x03(\x0b\x32\t.Playlist\"1\n\x12\x41\x64\x64PlaylistRequest\x12\x1b\n\x08playlist\x18\x01 \x01(\x0b\x32\t.Playlist\">\n\x17\x41\x64\x64PlaylistMusicRequest\x12\x12\n\nplaylistId\x18\x01 \x01(\x05\x12\x0f\n\x07musicId\x18\x02 \x01(\x05\"4\n\x15UpdatePlaylistRequest\x12\x1b\n\x08playlist\x18\x01 \x01(\x0b\x32\t.Playlist\")\n\x10GetMusicResponse\x12\x15\n\x05music\x18\x01 \x01(\x0b\x32\x06.Music\".\n\x14GetAllMusicsResponse\x12\x16\n\x06musics\x18\x01 \x03(\x0b\x32\x06.Music\"(\n\x0f\x41\x64\x64MusicRequest\x12\x15\n\x05music\x18\x01 \x01(\x0b\x32\x06.Music\"+\n\x12UpdateMusicRequest\x12\x15\n\x05music\x18\x01 \x01(\x0b\x32\x06.Music2\x9e\t\n\x07Spotify\x12\x30\n\x07GetUser\x12\x11.IdGenericRequest\x1a\x10.GetUserResponse\"\x00\x12-\n\x0bGetAllUsers\x12\x06.Empty\x1a\x14.GetAllUsersResponse\"\x00\x12\x42\n\x10GetUserPlaylists\x12\x11.IdGenericRequest\x1a\x19.GetUserPlaylistsResponse\"\x00\x12\x30\n\x07\x41\x64\x64User\x12\x0f.AddUserRequest\x1a\x12.IdGenericResponse\"\x00\x12\x36\n\nUpdateUser\x12\x12.UpdateUserRequest\x1a\x12.IdGenericResponse\"\x00\x12\x35\n\nDeleteUser\x12\x11.IdGenericRequest\x1a\x12.IdGenericResponse\"\x00\x12\x38\n\x0bGetPlaylist\x12\x11.IdGenericRequest\x1a\x14.GetPlaylistResponse\"\x00\x12\x35\n\x0fGetAllPlaylists\x12\x06.Empty\x1a\x18.GetAllPlaylistsResponse\"\x00\x12\x44\n\x11GetPlaylistMusics\x12\x11.IdGenericRequest\x1a\x1a.GetPlaylistMusicsResponse\"\x00\x12R\n\x18GetAllPlaylistsWithMusic\x12\x11.IdGenericRequest\x1a!.GetAllPlaylistsWithMusicResponse\"\x00\x12\x38\n\x0b\x41\x64\x64Playlist\x12\x13.AddPlaylistRequest\x1a\x12.IdGenericResponse\"\x00\x12\x42\n\x10\x41\x64\x64PlaylistMusic\x12\x18.AddPlaylistMusicRequest\x1a\x12.IdGenericResponse\"\x00\x12>\n\x0eUpdatePlaylist\x12\x16.UpdatePlaylistRequest\x1a\x12.IdGenericResponse\"\x00\x12\x39\n\x0e\x44\x65letePlaylist\x12\x11.IdGenericRequest\x1a\x12.IdGenericResponse\"\x00\x12>\n\x13\x44\x65letePlaylistMusic\x12\x11.IdGenericRequest\x1a\x12.IdGenericResponse\"\x00\x12\x32\n\x08GetMusic\x12\x11.IdGenericRequest\x1a\x11.GetMusicResponse\"\x00\x12/\n\x0cGetAllMusics\x12\x06.Empty\x1a\x15.GetAllMusicsResponse\"\x00\x12\x32\n\x08\x41\x64\x64Music\x12\x10.AddMusicRequest\x1a\x12.IdGenericResponse\"\x00\x12\x38\n\x0bUpdateMusic\x12\x13.UpdateMusicRequest\x1a\x12.IdGenericResponse\"\x00\x12\x36\n\x0b\x44\x65leteMusic\x12\x11.IdGenericRequest\x1a\x12.IdGenericResponse\"\x00\x62\x06proto3')
 
 
 
@@ -32,6 +32,7 @@ _UPDATEUSERREQUEST = DESCRIPTOR.message_types_by_name['UpdateUserRequest']
 _GETPLAYLISTRESPONSE = DESCRIPTOR.message_types_by_name['GetPlaylistResponse']
 _GETALLPLAYLISTSRESPONSE = DESCRIPTOR.message_types_by_name['GetAllPlaylistsResponse']
 _GETPLAYLISTMUSICSRESPONSE = DESCRIPTOR.message_types_by_name['GetPlaylistMusicsResponse']
+_GETALLPLAYLISTSWITHMUSICRESPONSE = DESCRIPTOR.message_types_by_name['GetAllPlaylistsWithMusicResponse']
 _ADDPLAYLISTREQUEST = DESCRIPTOR.message_types_by_name['AddPlaylistRequest']
 _ADDPLAYLISTMUSICREQUEST = DESCRIPTOR.message_types_by_name['AddPlaylistMusicRequest']
 _UPDATEPLAYLISTREQUEST = DESCRIPTOR.message_types_by_name['UpdatePlaylistRequest']
@@ -137,6 +138,13 @@ GetPlaylistMusicsResponse = _reflection.GeneratedProtocolMessageType('GetPlaylis
   })
 _sym_db.RegisterMessage(GetPlaylistMusicsResponse)
 
+GetAllPlaylistsWithMusicResponse = _reflection.GeneratedProtocolMessageType('GetAllPlaylistsWithMusicResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETALLPLAYLISTSWITHMUSICRESPONSE,
+  '__module__' : 'service_unary_pb2'
+  # @@protoc_insertion_point(class_scope:GetAllPlaylistsWithMusicResponse)
+  })
+_sym_db.RegisterMessage(GetAllPlaylistsWithMusicResponse)
+
 AddPlaylistRequest = _reflection.GeneratedProtocolMessageType('AddPlaylistRequest', (_message.Message,), {
   'DESCRIPTOR' : _ADDPLAYLISTREQUEST,
   '__module__' : 'service_unary_pb2'
@@ -218,20 +226,22 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GETALLPLAYLISTSRESPONSE._serialized_end=605
   _GETPLAYLISTMUSICSRESPONSE._serialized_start=607
   _GETPLAYLISTMUSICSRESPONSE._serialized_end=658
-  _ADDPLAYLISTREQUEST._serialized_start=660
-  _ADDPLAYLISTREQUEST._serialized_end=709
-  _ADDPLAYLISTMUSICREQUEST._serialized_start=711
-  _ADDPLAYLISTMUSICREQUEST._serialized_end=773
-  _UPDATEPLAYLISTREQUEST._serialized_start=775
-  _UPDATEPLAYLISTREQUEST._serialized_end=827
-  _GETMUSICRESPONSE._serialized_start=829
-  _GETMUSICRESPONSE._serialized_end=870
-  _GETALLMUSICSRESPONSE._serialized_start=872
-  _GETALLMUSICSRESPONSE._serialized_end=918
-  _ADDMUSICREQUEST._serialized_start=920
-  _ADDMUSICREQUEST._serialized_end=960
-  _UPDATEMUSICREQUEST._serialized_start=962
-  _UPDATEMUSICREQUEST._serialized_end=1005
-  _SPOTIFY._serialized_start=1008
-  _SPOTIFY._serialized_end=2106
+  _GETALLPLAYLISTSWITHMUSICRESPONSE._serialized_start=660
+  _GETALLPLAYLISTSWITHMUSICRESPONSE._serialized_end=724
+  _ADDPLAYLISTREQUEST._serialized_start=726
+  _ADDPLAYLISTREQUEST._serialized_end=775
+  _ADDPLAYLISTMUSICREQUEST._serialized_start=777
+  _ADDPLAYLISTMUSICREQUEST._serialized_end=839
+  _UPDATEPLAYLISTREQUEST._serialized_start=841
+  _UPDATEPLAYLISTREQUEST._serialized_end=893
+  _GETMUSICRESPONSE._serialized_start=895
+  _GETMUSICRESPONSE._serialized_end=936
+  _GETALLMUSICSRESPONSE._serialized_start=938
+  _GETALLMUSICSRESPONSE._serialized_end=984
+  _ADDMUSICREQUEST._serialized_start=986
+  _ADDMUSICREQUEST._serialized_end=1026
+  _UPDATEMUSICREQUEST._serialized_start=1028
+  _UPDATEMUSICREQUEST._serialized_end=1071
+  _SPOTIFY._serialized_start=1074
+  _SPOTIFY._serialized_end=2256
 # @@protoc_insertion_point(module_scope)

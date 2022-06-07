@@ -59,6 +59,11 @@ class SpotifyStub(object):
                 request_serializer=service__unary__pb2.IdGenericRequest.SerializeToString,
                 response_deserializer=service__unary__pb2.GetPlaylistMusicsResponse.FromString,
                 )
+        self.GetAllPlaylistsWithMusic = channel.unary_unary(
+                '/Spotify/GetAllPlaylistsWithMusic',
+                request_serializer=service__unary__pb2.IdGenericRequest.SerializeToString,
+                response_deserializer=service__unary__pb2.GetAllPlaylistsWithMusicResponse.FromString,
+                )
         self.AddPlaylist = channel.unary_unary(
                 '/Spotify/AddPlaylist',
                 request_serializer=service__unary__pb2.AddPlaylistRequest.SerializeToString,
@@ -163,6 +168,12 @@ class SpotifyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetPlaylistMusics(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllPlaylistsWithMusic(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -275,6 +286,11 @@ def add_SpotifyServicer_to_server(servicer, server):
                     servicer.GetPlaylistMusics,
                     request_deserializer=service__unary__pb2.IdGenericRequest.FromString,
                     response_serializer=service__unary__pb2.GetPlaylistMusicsResponse.SerializeToString,
+            ),
+            'GetAllPlaylistsWithMusic': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAllPlaylistsWithMusic,
+                    request_deserializer=service__unary__pb2.IdGenericRequest.FromString,
+                    response_serializer=service__unary__pb2.GetAllPlaylistsWithMusicResponse.SerializeToString,
             ),
             'AddPlaylist': grpc.unary_unary_rpc_method_handler(
                     servicer.AddPlaylist,
@@ -486,6 +502,23 @@ class Spotify(object):
         return grpc.experimental.unary_unary(request, target, '/Spotify/GetPlaylistMusics',
             service__unary__pb2.IdGenericRequest.SerializeToString,
             service__unary__pb2.GetPlaylistMusicsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllPlaylistsWithMusic(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Spotify/GetAllPlaylistsWithMusic',
+            service__unary__pb2.IdGenericRequest.SerializeToString,
+            service__unary__pb2.GetAllPlaylistsWithMusicResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

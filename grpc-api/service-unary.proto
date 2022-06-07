@@ -11,6 +11,7 @@ service Spotify{
   rpc GetPlaylist(IdGenericRequest) returns (GetPlaylistResponse) {}
   rpc GetAllPlaylists(Empty) returns (GetAllPlaylistsResponse) {}
   rpc GetPlaylistMusics(IdGenericRequest) returns (GetPlaylistMusicsResponse) {}
+  rpc GetAllPlaylistsWithMusic(IdGenericRequest) returns (GetAllPlaylistsWithMusicResponse) {}
   rpc AddPlaylist(AddPlaylistRequest) returns (IdGenericResponse) {}
   rpc AddPlaylistMusic(AddPlaylistMusicRequest) returns (IdGenericResponse) {}
   rpc UpdatePlaylist(UpdatePlaylistRequest) returns (IdGenericResponse) {}
@@ -83,6 +84,10 @@ message GetAllPlaylistsResponse{
 
 message GetPlaylistMusicsResponse{
   repeated Music musics = 1;
+}
+
+message GetAllPlaylistsWithMusicResponse{
+  repeated Playlist playlists = 1;
 }
 
 message AddPlaylistRequest{
