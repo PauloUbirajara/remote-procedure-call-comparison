@@ -6,14 +6,9 @@ class UserController {
 			const users = DatabaseService.users;
 
 			// Transformar todos os IDs de músicas para a música encontrada no DatabaseService.songs
-			users.map((u) => {
-				u.playlists.map((p) => {
-					p.songs = DatabaseService.songs.filter((s) => p.songs.includes(s.id));
-				});
-				return u;
-			});
+			const usersWithSongInfo = users.map(getSongInfoForUser);
 
-			return res.status(200).json(users);
+			return res.status(200).json(usersWithSongInfo);
 		} catch (e) {
 			console.error(e);
 			return res.sendStatus(500);
@@ -21,10 +16,16 @@ class UserController {
 	}
 
 	create(req, res) {
-		const user = req.body;
+		let user = req.body;
+
 		try {
+			// Ajustar id de usuário para ser o maior
+			delete user['id'];
+			const nextId = Math.max(...DatabaseService.users.map((u) => u.id)) + 1;
+			user = Object.assign({ id: nextId }, user);
+
 			DatabaseService.users.push(user);
-			return res.sendStatus(200);
+			return res.status(200).json(getSongInfoForUser(user));
 		} catch (e) {
 			return res.sendStatus(500);
 		}
@@ -36,10 +37,7 @@ class UserController {
 
 		try {
 			DatabaseService.users = DatabaseService.users.map((user) => {
-				if (user.id === userId) {
-					return newUser;
-				}
-				return user;
+				return user.id === userId ? newUser : user;
 			});
 
 			return res.sendStatus(200);
@@ -51,10 +49,16 @@ class UserController {
 	delete(req, res) {
 		const userId = req.params.userId;
 		try {
-			DatabaseService.users = DatabaseService.users.filter(
-				(user) => user.id !== userId
-			);
-			return res.status(200).json(userId);
+			const users = DatabaseService.users;
+			const userExists = users.map((u) => u.id).includes(userId);
+
+			if (!userExists) {
+				return res.sendStatus(404);
+			}
+
+			DatabaseService.users = users.filter((user) => user.id !== userId);
+
+			return res.status(201);
 		} catch (e) {
 			return res.sendStatus(500);
 		}
@@ -96,6 +100,24 @@ class UserController {
 			return res.sendStatus(500);
 		}
 	}
+}
+
+function getSongInfoForUser(user) {
+	const userWithSongInfo = Object.assign({}, user);
+
+	userWithSongInfo.playlists.map(getSongInfoForPlaylist);
+
+	return userWithSongInfo;
+}
+
+function getSongInfoForPlaylist(playlist) {
+	const playlistWithSongInfo = Object.assign({}, playlist);
+
+	playlistWithSongInfo.songs = DatabaseService.songs.filter((s) => {
+		return playlistWithSongInfo.songs.includes(s.id);
+	});
+
+	return playlistWithSongInfo;
 }
 
 module.exports = new UserController();
