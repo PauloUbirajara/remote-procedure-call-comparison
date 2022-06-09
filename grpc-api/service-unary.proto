@@ -2,95 +2,71 @@ syntax = "proto3";
 
 service Spotify{
   rpc GetUser(IdGenericRequest) returns (GetUserResponse) {}
-  rpc GetAllUsers(Empty) returns (GetAllUsersResponse) {}
-  rpc GetUserPlaylists(IdGenericRequest) returns (GetUserPlaylistsResponse) {}
-  rpc AddUser(AddUserRequest) returns (IdGenericResponse) {}
-  rpc UpdateUser(UpdateUserRequest) returns (IdGenericResponse) {}
+  rpc GetAllUsers(Empty) returns (UsersGenericResponse) {}
+  rpc GetUserPlaylists(IdGenericRequest) returns (PlaylistsGenericResponse) {}
+  rpc AddUser(AddOrUpdateUserRequest) returns (IdGenericResponse) {}
+  rpc AddUserPlaylist(AddUserPlaylistRequest) returns (IdGenericResponse) {}
+  rpc UpdateUser(AddOrUpdateUserRequest) returns (IdGenericResponse) {}
   rpc DeleteUser(IdGenericRequest) returns (IdGenericResponse) {}
+  rpc DeleteUserPlaylist(DeleteUserPlaylistRequest) returns (IdGenericResponse) {}
 
   rpc GetPlaylist(IdGenericRequest) returns (GetPlaylistResponse) {}
-  rpc GetAllPlaylists(Empty) returns (GetAllPlaylistsResponse) {}
-  rpc GetPlaylistMusics(IdGenericRequest) returns (GetPlaylistMusicsResponse) {}
-  rpc GetAllPlaylistsWithMusic(IdGenericRequest) returns (GetAllPlaylistsWithMusicResponse) {}
-  rpc AddPlaylist(AddPlaylistRequest) returns (IdGenericResponse) {}
+  rpc GetAllPlaylists(Empty) returns (PlaylistsGenericResponse) {}
+  rpc GetPlaylistMusics(IdGenericRequest) returns (MusicsGenericResponse) {}
+  rpc GetAllPlaylistsWithMusic(IdGenericRequest) returns (PlaylistsGenericResponse) {}
+  rpc AddPlaylist(AddOrUpdatePlaylistRequest) returns (IdGenericResponse) {}
   rpc AddPlaylistMusic(AddPlaylistMusicRequest) returns (IdGenericResponse) {}
-  rpc UpdatePlaylist(UpdatePlaylistRequest) returns (IdGenericResponse) {}
+  rpc UpdatePlaylist(AddOrUpdatePlaylistRequest) returns (IdGenericResponse) {}
   rpc DeletePlaylist(IdGenericRequest) returns (IdGenericResponse) {}
-  rpc DeletePlaylistMusic(IdGenericRequest) returns (IdGenericResponse) {}
+  rpc DeletePlaylistMusic(DeletePlaylistMusicRequest) returns (IdGenericResponse) {}
 
   rpc GetMusic(IdGenericRequest) returns (GetMusicResponse) {}
-  rpc GetAllMusics(Empty) returns (GetAllMusicsResponse) {}
-  rpc AddMusic(AddMusicRequest) returns (IdGenericResponse) {}
-  rpc UpdateMusic(UpdateMusicRequest) returns (IdGenericResponse) {}
+  rpc GetAllMusics(Empty) returns (MusicsGenericResponse) {}
+  rpc AddMusic(AddOrUpdateMusicRequest) returns (IdGenericResponse) {}
+  rpc UpdateMusic(AddOrUpdateMusicRequest) returns (IdGenericResponse) {}
   rpc DeleteMusic(IdGenericRequest) returns (IdGenericResponse) {}
 }
 
 message Empty {}
 
-message IdGenericRequest {
-  int32 id = 1;
-}
-
-message IdGenericResponse {
-  int32 id = 1;
-}
-
 message User{
   int32 id = 1;
   string name = 2;
   int32 age = 3;
-  repeated int32 playlistsIds = 4;
+  repeated int32 playlists = 4;
 }
 
 message Playlist{
   int32 id = 1;
   string name = 2;
-  repeated int32 musicsIds = 4;
+  repeated int32 musics = 4;
 }
 
 message Music{
   int32 id = 1;
-  string nome = 2;
+  string name = 2;
   string artist = 3;
 }
 
-message GetUserResponse{
+message IdGenericRequest {
+  int32 id = 1;
+}
+
+message AddOrUpdateUserRequest{
   User user = 1;
 }
 
-message GetAllUsersResponse{
-  repeated User users = 1;
+message AddUserPlaylistRequest{
+  int32 userId = 1;
+  int32 playlistId = 2;
 }
 
-message GetUserPlaylistsResponse{
-  repeated Playlist playlists = 1;
+message DeleteUserPlaylistRequest{
+  int32 userId = 1;
+  int32 playlistId = 2;
 }
 
-message AddUserRequest{
-  User user = 1;
-}
-
-message UpdateUserRequest{
-  User user = 1;
-}
-
-message GetPlaylistResponse{
-  Playlist playlist = 1;
-}
-
-message GetAllPlaylistsResponse{
-  repeated Playlist playlists = 1;
-}
-
-message GetPlaylistMusicsResponse{
-  repeated Music musics = 1;
-}
-
-message GetAllPlaylistsWithMusicResponse{
-  repeated Playlist playlists = 1;
-}
-
-message AddPlaylistRequest{
+message AddOrUpdatePlaylistRequest{
   Playlist playlist = 1;
 }
 
@@ -99,22 +75,39 @@ message AddPlaylistMusicRequest{
   int32 musicId = 2;
 }
 
-message UpdatePlaylistRequest{
+message DeletePlaylistMusicRequest{
+  int32 playlistId = 1;
+  int32 musicId = 2;
+}
+
+message AddOrUpdateMusicRequest{
+  Music music = 1;
+}
+
+message IdGenericResponse {
+  int32 id = 1;
+}
+
+message GetUserResponse{
+  User user = 1;
+}
+
+message UsersGenericResponse{
+  repeated User users = 1;
+}
+
+message GetPlaylistResponse{
   Playlist playlist = 1;
+}
+
+message PlaylistsGenericResponse{
+  repeated Playlist playlists = 1;
 }
 
 message GetMusicResponse{
   Music music = 1;
 }
 
-message GetAllMusicsResponse{
+message MusicsGenericResponse{
   repeated Music musics = 1;
-}
-
-message AddMusicRequest{
-  Music music = 1;
-}
-
-message UpdateMusicRequest{
-  Music music = 1;
 }

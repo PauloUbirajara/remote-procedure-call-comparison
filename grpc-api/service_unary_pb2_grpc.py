@@ -22,26 +22,36 @@ class SpotifyStub(object):
         self.GetAllUsers = channel.unary_unary(
                 '/Spotify/GetAllUsers',
                 request_serializer=service__unary__pb2.Empty.SerializeToString,
-                response_deserializer=service__unary__pb2.GetAllUsersResponse.FromString,
+                response_deserializer=service__unary__pb2.UsersGenericResponse.FromString,
                 )
         self.GetUserPlaylists = channel.unary_unary(
                 '/Spotify/GetUserPlaylists',
                 request_serializer=service__unary__pb2.IdGenericRequest.SerializeToString,
-                response_deserializer=service__unary__pb2.GetUserPlaylistsResponse.FromString,
+                response_deserializer=service__unary__pb2.PlaylistsGenericResponse.FromString,
                 )
         self.AddUser = channel.unary_unary(
                 '/Spotify/AddUser',
-                request_serializer=service__unary__pb2.AddUserRequest.SerializeToString,
+                request_serializer=service__unary__pb2.AddOrUpdateUserRequest.SerializeToString,
+                response_deserializer=service__unary__pb2.IdGenericResponse.FromString,
+                )
+        self.AddUserPlaylist = channel.unary_unary(
+                '/Spotify/AddUserPlaylist',
+                request_serializer=service__unary__pb2.AddUserPlaylistRequest.SerializeToString,
                 response_deserializer=service__unary__pb2.IdGenericResponse.FromString,
                 )
         self.UpdateUser = channel.unary_unary(
                 '/Spotify/UpdateUser',
-                request_serializer=service__unary__pb2.UpdateUserRequest.SerializeToString,
+                request_serializer=service__unary__pb2.AddOrUpdateUserRequest.SerializeToString,
                 response_deserializer=service__unary__pb2.IdGenericResponse.FromString,
                 )
         self.DeleteUser = channel.unary_unary(
                 '/Spotify/DeleteUser',
                 request_serializer=service__unary__pb2.IdGenericRequest.SerializeToString,
+                response_deserializer=service__unary__pb2.IdGenericResponse.FromString,
+                )
+        self.DeleteUserPlaylist = channel.unary_unary(
+                '/Spotify/DeleteUserPlaylist',
+                request_serializer=service__unary__pb2.DeleteUserPlaylistRequest.SerializeToString,
                 response_deserializer=service__unary__pb2.IdGenericResponse.FromString,
                 )
         self.GetPlaylist = channel.unary_unary(
@@ -52,21 +62,21 @@ class SpotifyStub(object):
         self.GetAllPlaylists = channel.unary_unary(
                 '/Spotify/GetAllPlaylists',
                 request_serializer=service__unary__pb2.Empty.SerializeToString,
-                response_deserializer=service__unary__pb2.GetAllPlaylistsResponse.FromString,
+                response_deserializer=service__unary__pb2.PlaylistsGenericResponse.FromString,
                 )
         self.GetPlaylistMusics = channel.unary_unary(
                 '/Spotify/GetPlaylistMusics',
                 request_serializer=service__unary__pb2.IdGenericRequest.SerializeToString,
-                response_deserializer=service__unary__pb2.GetPlaylistMusicsResponse.FromString,
+                response_deserializer=service__unary__pb2.MusicsGenericResponse.FromString,
                 )
         self.GetAllPlaylistsWithMusic = channel.unary_unary(
                 '/Spotify/GetAllPlaylistsWithMusic',
                 request_serializer=service__unary__pb2.IdGenericRequest.SerializeToString,
-                response_deserializer=service__unary__pb2.GetAllPlaylistsWithMusicResponse.FromString,
+                response_deserializer=service__unary__pb2.PlaylistsGenericResponse.FromString,
                 )
         self.AddPlaylist = channel.unary_unary(
                 '/Spotify/AddPlaylist',
-                request_serializer=service__unary__pb2.AddPlaylistRequest.SerializeToString,
+                request_serializer=service__unary__pb2.AddOrUpdatePlaylistRequest.SerializeToString,
                 response_deserializer=service__unary__pb2.IdGenericResponse.FromString,
                 )
         self.AddPlaylistMusic = channel.unary_unary(
@@ -76,7 +86,7 @@ class SpotifyStub(object):
                 )
         self.UpdatePlaylist = channel.unary_unary(
                 '/Spotify/UpdatePlaylist',
-                request_serializer=service__unary__pb2.UpdatePlaylistRequest.SerializeToString,
+                request_serializer=service__unary__pb2.AddOrUpdatePlaylistRequest.SerializeToString,
                 response_deserializer=service__unary__pb2.IdGenericResponse.FromString,
                 )
         self.DeletePlaylist = channel.unary_unary(
@@ -86,7 +96,7 @@ class SpotifyStub(object):
                 )
         self.DeletePlaylistMusic = channel.unary_unary(
                 '/Spotify/DeletePlaylistMusic',
-                request_serializer=service__unary__pb2.IdGenericRequest.SerializeToString,
+                request_serializer=service__unary__pb2.DeletePlaylistMusicRequest.SerializeToString,
                 response_deserializer=service__unary__pb2.IdGenericResponse.FromString,
                 )
         self.GetMusic = channel.unary_unary(
@@ -97,16 +107,16 @@ class SpotifyStub(object):
         self.GetAllMusics = channel.unary_unary(
                 '/Spotify/GetAllMusics',
                 request_serializer=service__unary__pb2.Empty.SerializeToString,
-                response_deserializer=service__unary__pb2.GetAllMusicsResponse.FromString,
+                response_deserializer=service__unary__pb2.MusicsGenericResponse.FromString,
                 )
         self.AddMusic = channel.unary_unary(
                 '/Spotify/AddMusic',
-                request_serializer=service__unary__pb2.AddMusicRequest.SerializeToString,
+                request_serializer=service__unary__pb2.AddOrUpdateMusicRequest.SerializeToString,
                 response_deserializer=service__unary__pb2.IdGenericResponse.FromString,
                 )
         self.UpdateMusic = channel.unary_unary(
                 '/Spotify/UpdateMusic',
-                request_serializer=service__unary__pb2.UpdateMusicRequest.SerializeToString,
+                request_serializer=service__unary__pb2.AddOrUpdateMusicRequest.SerializeToString,
                 response_deserializer=service__unary__pb2.IdGenericResponse.FromString,
                 )
         self.DeleteMusic = channel.unary_unary(
@@ -143,6 +153,12 @@ class SpotifyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AddUserPlaylist(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def UpdateUser(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -150,6 +166,12 @@ class SpotifyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteUser(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteUserPlaylist(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -250,26 +272,36 @@ def add_SpotifyServicer_to_server(servicer, server):
             'GetAllUsers': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAllUsers,
                     request_deserializer=service__unary__pb2.Empty.FromString,
-                    response_serializer=service__unary__pb2.GetAllUsersResponse.SerializeToString,
+                    response_serializer=service__unary__pb2.UsersGenericResponse.SerializeToString,
             ),
             'GetUserPlaylists': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserPlaylists,
                     request_deserializer=service__unary__pb2.IdGenericRequest.FromString,
-                    response_serializer=service__unary__pb2.GetUserPlaylistsResponse.SerializeToString,
+                    response_serializer=service__unary__pb2.PlaylistsGenericResponse.SerializeToString,
             ),
             'AddUser': grpc.unary_unary_rpc_method_handler(
                     servicer.AddUser,
-                    request_deserializer=service__unary__pb2.AddUserRequest.FromString,
+                    request_deserializer=service__unary__pb2.AddOrUpdateUserRequest.FromString,
+                    response_serializer=service__unary__pb2.IdGenericResponse.SerializeToString,
+            ),
+            'AddUserPlaylist': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddUserPlaylist,
+                    request_deserializer=service__unary__pb2.AddUserPlaylistRequest.FromString,
                     response_serializer=service__unary__pb2.IdGenericResponse.SerializeToString,
             ),
             'UpdateUser': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateUser,
-                    request_deserializer=service__unary__pb2.UpdateUserRequest.FromString,
+                    request_deserializer=service__unary__pb2.AddOrUpdateUserRequest.FromString,
                     response_serializer=service__unary__pb2.IdGenericResponse.SerializeToString,
             ),
             'DeleteUser': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteUser,
                     request_deserializer=service__unary__pb2.IdGenericRequest.FromString,
+                    response_serializer=service__unary__pb2.IdGenericResponse.SerializeToString,
+            ),
+            'DeleteUserPlaylist': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteUserPlaylist,
+                    request_deserializer=service__unary__pb2.DeleteUserPlaylistRequest.FromString,
                     response_serializer=service__unary__pb2.IdGenericResponse.SerializeToString,
             ),
             'GetPlaylist': grpc.unary_unary_rpc_method_handler(
@@ -280,21 +312,21 @@ def add_SpotifyServicer_to_server(servicer, server):
             'GetAllPlaylists': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAllPlaylists,
                     request_deserializer=service__unary__pb2.Empty.FromString,
-                    response_serializer=service__unary__pb2.GetAllPlaylistsResponse.SerializeToString,
+                    response_serializer=service__unary__pb2.PlaylistsGenericResponse.SerializeToString,
             ),
             'GetPlaylistMusics': grpc.unary_unary_rpc_method_handler(
                     servicer.GetPlaylistMusics,
                     request_deserializer=service__unary__pb2.IdGenericRequest.FromString,
-                    response_serializer=service__unary__pb2.GetPlaylistMusicsResponse.SerializeToString,
+                    response_serializer=service__unary__pb2.MusicsGenericResponse.SerializeToString,
             ),
             'GetAllPlaylistsWithMusic': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAllPlaylistsWithMusic,
                     request_deserializer=service__unary__pb2.IdGenericRequest.FromString,
-                    response_serializer=service__unary__pb2.GetAllPlaylistsWithMusicResponse.SerializeToString,
+                    response_serializer=service__unary__pb2.PlaylistsGenericResponse.SerializeToString,
             ),
             'AddPlaylist': grpc.unary_unary_rpc_method_handler(
                     servicer.AddPlaylist,
-                    request_deserializer=service__unary__pb2.AddPlaylistRequest.FromString,
+                    request_deserializer=service__unary__pb2.AddOrUpdatePlaylistRequest.FromString,
                     response_serializer=service__unary__pb2.IdGenericResponse.SerializeToString,
             ),
             'AddPlaylistMusic': grpc.unary_unary_rpc_method_handler(
@@ -304,7 +336,7 @@ def add_SpotifyServicer_to_server(servicer, server):
             ),
             'UpdatePlaylist': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdatePlaylist,
-                    request_deserializer=service__unary__pb2.UpdatePlaylistRequest.FromString,
+                    request_deserializer=service__unary__pb2.AddOrUpdatePlaylistRequest.FromString,
                     response_serializer=service__unary__pb2.IdGenericResponse.SerializeToString,
             ),
             'DeletePlaylist': grpc.unary_unary_rpc_method_handler(
@@ -314,7 +346,7 @@ def add_SpotifyServicer_to_server(servicer, server):
             ),
             'DeletePlaylistMusic': grpc.unary_unary_rpc_method_handler(
                     servicer.DeletePlaylistMusic,
-                    request_deserializer=service__unary__pb2.IdGenericRequest.FromString,
+                    request_deserializer=service__unary__pb2.DeletePlaylistMusicRequest.FromString,
                     response_serializer=service__unary__pb2.IdGenericResponse.SerializeToString,
             ),
             'GetMusic': grpc.unary_unary_rpc_method_handler(
@@ -325,16 +357,16 @@ def add_SpotifyServicer_to_server(servicer, server):
             'GetAllMusics': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAllMusics,
                     request_deserializer=service__unary__pb2.Empty.FromString,
-                    response_serializer=service__unary__pb2.GetAllMusicsResponse.SerializeToString,
+                    response_serializer=service__unary__pb2.MusicsGenericResponse.SerializeToString,
             ),
             'AddMusic': grpc.unary_unary_rpc_method_handler(
                     servicer.AddMusic,
-                    request_deserializer=service__unary__pb2.AddMusicRequest.FromString,
+                    request_deserializer=service__unary__pb2.AddOrUpdateMusicRequest.FromString,
                     response_serializer=service__unary__pb2.IdGenericResponse.SerializeToString,
             ),
             'UpdateMusic': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateMusic,
-                    request_deserializer=service__unary__pb2.UpdateMusicRequest.FromString,
+                    request_deserializer=service__unary__pb2.AddOrUpdateMusicRequest.FromString,
                     response_serializer=service__unary__pb2.IdGenericResponse.SerializeToString,
             ),
             'DeleteMusic': grpc.unary_unary_rpc_method_handler(
@@ -382,7 +414,7 @@ class Spotify(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/GetAllUsers',
             service__unary__pb2.Empty.SerializeToString,
-            service__unary__pb2.GetAllUsersResponse.FromString,
+            service__unary__pb2.UsersGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -399,7 +431,7 @@ class Spotify(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/GetUserPlaylists',
             service__unary__pb2.IdGenericRequest.SerializeToString,
-            service__unary__pb2.GetUserPlaylistsResponse.FromString,
+            service__unary__pb2.PlaylistsGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -415,7 +447,24 @@ class Spotify(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/AddUser',
-            service__unary__pb2.AddUserRequest.SerializeToString,
+            service__unary__pb2.AddOrUpdateUserRequest.SerializeToString,
+            service__unary__pb2.IdGenericResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddUserPlaylist(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Spotify/AddUserPlaylist',
+            service__unary__pb2.AddUserPlaylistRequest.SerializeToString,
             service__unary__pb2.IdGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -432,7 +481,7 @@ class Spotify(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/UpdateUser',
-            service__unary__pb2.UpdateUserRequest.SerializeToString,
+            service__unary__pb2.AddOrUpdateUserRequest.SerializeToString,
             service__unary__pb2.IdGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -450,6 +499,23 @@ class Spotify(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/DeleteUser',
             service__unary__pb2.IdGenericRequest.SerializeToString,
+            service__unary__pb2.IdGenericResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteUserPlaylist(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Spotify/DeleteUserPlaylist',
+            service__unary__pb2.DeleteUserPlaylistRequest.SerializeToString,
             service__unary__pb2.IdGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -484,7 +550,7 @@ class Spotify(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/GetAllPlaylists',
             service__unary__pb2.Empty.SerializeToString,
-            service__unary__pb2.GetAllPlaylistsResponse.FromString,
+            service__unary__pb2.PlaylistsGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -501,7 +567,7 @@ class Spotify(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/GetPlaylistMusics',
             service__unary__pb2.IdGenericRequest.SerializeToString,
-            service__unary__pb2.GetPlaylistMusicsResponse.FromString,
+            service__unary__pb2.MusicsGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -518,7 +584,7 @@ class Spotify(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/GetAllPlaylistsWithMusic',
             service__unary__pb2.IdGenericRequest.SerializeToString,
-            service__unary__pb2.GetAllPlaylistsWithMusicResponse.FromString,
+            service__unary__pb2.PlaylistsGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -534,7 +600,7 @@ class Spotify(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/AddPlaylist',
-            service__unary__pb2.AddPlaylistRequest.SerializeToString,
+            service__unary__pb2.AddOrUpdatePlaylistRequest.SerializeToString,
             service__unary__pb2.IdGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -568,7 +634,7 @@ class Spotify(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/UpdatePlaylist',
-            service__unary__pb2.UpdatePlaylistRequest.SerializeToString,
+            service__unary__pb2.AddOrUpdatePlaylistRequest.SerializeToString,
             service__unary__pb2.IdGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -602,7 +668,7 @@ class Spotify(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/DeletePlaylistMusic',
-            service__unary__pb2.IdGenericRequest.SerializeToString,
+            service__unary__pb2.DeletePlaylistMusicRequest.SerializeToString,
             service__unary__pb2.IdGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -637,7 +703,7 @@ class Spotify(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/GetAllMusics',
             service__unary__pb2.Empty.SerializeToString,
-            service__unary__pb2.GetAllMusicsResponse.FromString,
+            service__unary__pb2.MusicsGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -653,7 +719,7 @@ class Spotify(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/AddMusic',
-            service__unary__pb2.AddMusicRequest.SerializeToString,
+            service__unary__pb2.AddOrUpdateMusicRequest.SerializeToString,
             service__unary__pb2.IdGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -670,7 +736,7 @@ class Spotify(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Spotify/UpdateMusic',
-            service__unary__pb2.UpdateMusicRequest.SerializeToString,
+            service__unary__pb2.AddOrUpdateMusicRequest.SerializeToString,
             service__unary__pb2.IdGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
