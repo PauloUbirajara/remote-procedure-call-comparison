@@ -1,8 +1,6 @@
-rest-api/node_modules/
-rest-api/.vscode/
-
-grpc-api/.vscode/
-grpc-api/.idea/
-grpc-api/venv/
+node_modules/
+.vscode/
+.idea/
+venv/
 
 .history/
