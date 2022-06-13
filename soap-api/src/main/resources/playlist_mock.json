@@ -1,0 +1,32 @@
+[
+  {
+    "id": 0,
+    "name": "Knife Party",
+    "songs": [3, 4]
+  },
+  {
+    "id": 1,
+    "name": "As 50 mais tocadas no Brasil",
+    "songs": [5, 6]
+  },
+  {
+    "id": 2,
+    "name": "Só Track Boa 2020",
+    "songs": [7, 8, 9]
+  },
+  {
+    "id": 3,
+    "name": "Trap Nation",
+    "songs": [10, 11, 12, 13]
+  },
+  {
+    "id": 4,
+    "name": "Trap-Rap",
+    "songs": [14, 15, 16, 17]
+  },
+  {
+    "id": 5,
+    "name": "Power Metal",
+    "songs": [18, 19, 20]
+  }
+]
