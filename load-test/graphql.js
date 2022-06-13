@@ -9,37 +9,11 @@ export const options = {
 	duration: '3m' // Duração máxima do teste (pode ser que o teste termine mais cedo devido o limite de iterações)
 }
 
-{
-	findAllPeople{
-		id
-		name
-		age
-	  playlists{
-			id
-			name
-		songs{
-				id
-				name
-				artist
-			}
-		}
-	}
-	findAllSongs{
-		id
-		name
-		artist
-	}
-	findAllPlaylists{
-		id
-		name
-	}
-}
-
 function cargaBaixa() {
 	const queryGetAllUser = "{ findAllPeople{ id name age playlists{ id name songs{ id name artist } } } }"
 
 	const responseUsers = http.post("http://localhost:8080/graphql", JSON.stringify({ query: queryGetAllUser }), {
-		headers: headers,
+
 	})
 
 	check(responseUsers, {
@@ -54,11 +28,11 @@ function cargaMedia() {
 	const queryGetAllPlaylists = "{ findAllPlaylists{ id name } }"
 
 	const responseUsers = http.post("http://localhost:8080/graphql", JSON.stringify({ query: queryGetAllUser }), {
-		headers: headers,
+
 	})
 
 	const responsePlaylists = http.post("http://localhost:8080/graphql", JSON.stringify({ query: queryGetAllPlaylists }), {
-		headers: headers,
+
 	})
 
 	check(responseUsers, {
@@ -75,20 +49,20 @@ function cargaMedia() {
 }
 
 function cargaAlta() {
-	const queryGetAllUser = "{ findAllPeople{ id name age playlists{ id name songs{ id name artist } } } }";
-	const queryGetAllPlaylists = "{ findAllPlaylists{ id name } }";
-	const queryGetAllSongs = "{ findAllSongs{ id name artist } }";
+	const queryGetAllUser = "{ findAllPeople{ id name age playlists{ id name songs{ id name artist } } } }"
+	const queryGetAllPlaylists = "{ findAllPlaylists{ id name } }"
+	const queryGetAllSongs = "{ findAllSongs{ id name artist } }"
 
 	const responseUsers = http.post("http://localhost:8080/graphql", JSON.stringify({ query: queryGetAllUser }), {
-		headers: headers,
+
 	})
 
 	const responsePlaylists = http.post("http://localhost:8080/graphql", JSON.stringify({ query: queryGetAllPlaylists }), {
-		headers: headers,
+
 	})
 
 	const responseSongs = http.post("http://localhost:8080/graphql", JSON.stringify({ query: queryGetAllSongs }), {
-		headers: headers,
+
 	})
 
 	check(responseUsers, {
