@@ -1,62 +1,76 @@
 {
     "root_group": {
-        "name": "",
-        "path": "",
         "id": "d41d8cd98f00b204e9800998ecf8427e",
         "groups": {},
         "checks": {
                 "responseUsers OK": {
+                    "fails": 0,
                     "name": "responseUsers OK",
                     "path": "::responseUsers OK",
                     "id": "01c2e23b6544cd3dd059e8122d3d2b8b",
-                    "passes": 10651,
+                    "passes": 33821
+                },
+                "responsePlaylists OK": {
+                    "name": "responsePlaylists OK",
+                    "path": "::responsePlaylists OK",
+                    "id": "9f74c8d66f6a7c84373a93d5a18fb5b1",
+                    "passes": 33821,
                     "fails": 0
+                },
+                "responseMusics OK": {
+                    "fails": 0,
+                    "name": "responseMusics OK",
+                    "path": "::responseMusics OK",
+                    "id": "8843bd457f14e0d08aff9abb746c57e6",
+                    "passes": 33821
                 }
-            }
+            },
+        "name": "",
+        "path": ""
     },
     "metrics": {
+        "iteration_duration": {
+            "max": 2143.4912,
+            "p(90)": 124.4426,
+            "p(95)": 630.4001,
+            "avg": 178.2807630880233,
+            "min": 3.8096,
+            "med": 120.0097
+        },
+        "iterations": {
+            "count": 33821,
+            "rate": 1384.5509406281951
+        },
+        "vus": {
+            "value": 250,
+            "min": 250,
+            "max": 250
+        },
         "vus_max": {
-            "min": 1,
-            "max": 1,
-            "value": 1
+            "max": 250,
+            "value": 250,
+            "min": 250
         },
         "grpc_req_duration": {
-            "p(95)": 0.7985500000000001,
-            "avg": 0.3828910149281782,
+            "avg": 1.0150725026609422,
             "min": 0,
-            "med": 0.5088,
-            "max": 2.2781,
-            "p(90)": 0.7075
+            "med": 1.0009,
+            "max": 14.9993,
+            "p(90)": 1.19243,
+            "p(95)": 1.6236
         },
         "checks": {
-            "passes": 10651,
+            "passes": 101463,
             "fails": 0,
             "value": 1
         },
         "data_sent": {
-            "count": 2109001,
-            "rate": 106038.09165996675
+            "count": 12056946,
+            "rate": 493582.5648385132
         },
         "data_received": {
-            "count": 4067197,
-            "rate": 204493.88515469732
-        },
-        "iteration_duration": {
-            "p(90)": 2.0013,
-            "p(95)": 2.9988,
-            "avg": 1.177423217025819,
-            "min": 0,
-            "med": 1.0001,
-            "max": 8.5951
-        },
-        "iterations": {
-            "count": 14989,
-            "rate": 753.6293040597144
-        },
-        "vus": {
-            "max": 1,
-            "value": 1,
-            "min": 1
+            "count": 51413686,
+            "rate": 2104753.4760197117
         }
     }
 }
