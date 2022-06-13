@@ -3,31 +3,26 @@
 		{
 			"id": 0,
 			"name": "Einar",
-			"username": "Minerva55",
 			"playlists": [0, 1]
 		},
 		{
 			"id": 1,
 			"name": "Kylie",
-			"user": "Shannon_Durgan",
 			"playlists": [2, 3, 4]
 		},
 		{
 			"id": 2,
 			"name": "Kyla",
-			"user": "Bethany_Lakin",
 			"playlists": [3, 2, 1]
 		},
 		{
 			"id": 3,
 			"name": "Shaniya",
-			"user": "Karine.Cruickshank",
 			"playlists": [4]
 		},
 		{
 			"id": 4,
 			"name": "Jacynthe",
-			"user": "Queen.Ferry",
 			"playlists": [5]
 		}
 	],
