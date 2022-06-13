@@ -91,7 +91,7 @@ class SpotifyServer(pb2_grpc.SpotifyServicer):
 
 def serve():
     print("Starting server...")
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=32))
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=1000))
     pb2_grpc.add_SpotifyServicer_to_server(SpotifyServer(), server)
     server.add_insecure_port('[::]:50051')
     server.start()
