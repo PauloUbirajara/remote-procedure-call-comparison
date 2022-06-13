@@ -21,12 +21,13 @@ def getLatenciesPerMethod(rest, grpc, graphql, soap):
     metrics = [
         np.array_split(rest, 3),
         np.array_split(grpc, 3),
-        # np.array_split(graphql, 3),
+        np.array_split(graphql, 3),
         np.array_split(soap, 3)
     ]
 
     getMethod = [[], [], []]
     streamMethod = [[], [], []]
+    dripMethod = [[], [], []]
     dripMethod = [[], [], []]
 
     for tool in metrics:
@@ -120,8 +121,10 @@ def getMetricsGraphql():
     metrics = []
 
     for i in range(0, 9):
-        metricsAux = loadJSON("../load-test/graphqlResults/graphql" + str(i + 1))
-        metrics.append(metricsAux["metrics"]["graphql_req_duration"])
+        #metricsAux = loadJSON("../load-test/graphqlResults/graphql" + str(i + 1))
+        #metrics.append(metricsAux["metrics"]["graphql_req_duration"])
+        metricsAux = loadJSON("../load-test/soapResults/soap" + str(i + 1))
+        metrics.append(metricsAux["metrics"]["http_req_duration"])
 
     return metrics
 
@@ -168,20 +171,19 @@ if __name__ == '__main__':
 
     metricsRest = getMetricsRest()
     metricsGrpc = getMetricsGrpc()
-    # metricsGraphql = getmetricsGraphql()
+    metricsGraphql = getMetricsGraphql()
     metricsSoap = getMetricsSoap()
 
-    # medianas = getLatenciesPerMethod(metricsRest, metricsGrpc, metricsGraphql, metricsSoap)
-    medianas = getLatenciesPerMethod(metricsRest, metricsGrpc, None, metricsSoap)
+    medianas = getLatenciesPerMethod(metricsRest, metricsGrpc, metricsGraphql, metricsSoap)
 
     print(metricsRest)
     print(metricsGrpc)
-    # print(metricsGraphql)
+    print(metricsGraphql)
     print(metricsSoap)
 
     updateSheet(sheet, metricsRest, 3, 17)
     updateSheet(sheet, metricsGrpc, 21, 35)
-    # updateSheet(sheet, metricsGraphql, 39, 53)
+    updateSheet(sheet, metricsGraphql, 39, 53)
     updateSheet(sheet, metricsSoap, 57, 71)
 
     updateSheetPerMethod(sheet, medianas[0], 3, 6)
