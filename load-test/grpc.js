@@ -1,5 +1,5 @@
 import grpc from 'k6/net/grpc'
-import { check } from 'k6'
+import { check, sleep } from 'k6'
 
 const client = new grpc.Client()
 const protoFile = '../grpc-api/service-unary.proto'
@@ -81,5 +81,5 @@ export default () => {
 	// console.log(JSON.stringify(response.message));
 
 	client.close()
-	// sleep(1);
+	sleep(1)
 }

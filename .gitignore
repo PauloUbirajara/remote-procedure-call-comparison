@@ -4,3 +4,5 @@ node_modules/
 venv/
 
 .history/
+
+CompDistribTestsDataTreatment/eth-vs-ton-b8e005fda44c.json

@@ -1,0 +1,76 @@
+{
+    "metrics": {
+        "data_received": {
+            "count": 2744025,
+            "rate": 15189.669328544687
+        },
+        "iteration_duration": {
+            "min": 1001.5986,
+            "med": 1003.4572000000001,
+            "max": 1014.3675,
+            "p(90)": 1004.7154099999999,
+            "p(95)": 1005.13131,
+            "avg": 1003.5947511111108
+        },
+        "iterations": {
+            "count": 1800,
+            "rate": 9.963978021840338
+        },
+        "grpc_req_duration": {
+            "p(90)": 1.07231,
+            "p(95)": 1.1225,
+            "avg": 0.6646799999999987,
+            "min": 0,
+            "med": 0.5352,
+            "max": 2.0094
+        },
+        "checks": {
+            "passes": 5400,
+            "fails": 0,
+            "value": 1
+        },
+        "vus": {
+            "value": 10,
+            "min": 10,
+            "max": 10
+        },
+        "vus_max": {
+            "value": 10,
+            "min": 10,
+            "max": 10
+        },
+        "data_sent": {
+            "count": 646651,
+            "rate": 3579.5646398894874
+        }
+    },
+    "root_group": {
+        "checks": {
+            "responseUsers OK": {
+                "id": "01c2e23b6544cd3dd059e8122d3d2b8b",
+                "passes": 1800,
+                "fails": 0,
+                "name": "responseUsers OK",
+                "path": "::responseUsers OK"
+            },
+            "responsePlaylists OK": {
+                "name": "responsePlaylists OK",
+                "path": "::responsePlaylists OK",
+                "id": "9f74c8d66f6a7c84373a93d5a18fb5b1",
+                "passes": 1800,
+                "fails": 0
+            },
+            "responseMusics OK": {
+                "fails": 0,
+                "name": "responseMusics OK",
+                "path": "::responseMusics OK",
+                "id": "8843bd457f14e0d08aff9abb746c57e6",
+                "passes": 1800
+            }
+        },
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {}
+    }
+}
