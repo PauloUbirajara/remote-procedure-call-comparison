@@ -22,7 +22,7 @@ def getLatenciesPerMethod(rest, grpc, graphql, soap):
         np.array_split(rest, 3),
         np.array_split(grpc, 3),
         # np.array_split(graphql, 3),
-        # np.array_split(soap, 3)
+        np.array_split(soap, 3)
     ]
 
     getMethod = [[], [], []]
@@ -106,12 +106,32 @@ def getMetricsRest():
 
     return metrics
 
+
 def getMetricsGrpc():
     metrics = []
 
     for i in range(0, 9):
         metricsAux = loadJSON("../load-test/grpcResults/grpc" + str(i + 1))
         metrics.append(metricsAux["metrics"]["grpc_req_duration"])
+
+    return metrics
+
+def getMetricsGraphql():
+    metrics = []
+
+    for i in range(0, 9):
+        metricsAux = loadJSON("../load-test/graphqlResults/graphql" + str(i + 1))
+        metrics.append(metricsAux["metrics"]["graphql_req_duration"])
+
+    return metrics
+
+
+def getMetricsSoap():
+    metrics = []
+
+    for i in range(0, 9):
+        metricsAux = loadJSON("../load-test/soapResults/soap" + str(i + 1))
+        metrics.append(metricsAux["metrics"]["http_req_duration"])
 
     return metrics
 
@@ -149,20 +169,20 @@ if __name__ == '__main__':
     metricsRest = getMetricsRest()
     metricsGrpc = getMetricsGrpc()
     # metricsGraphql = getmetricsGraphql()
-    # metricsSoap = getmetricsSoap()
+    metricsSoap = getMetricsSoap()
 
-    #medianas = getLatenciesPerMethod(metricsRest, metricsGrpc, metricsGraphql, metricsSoap)
-    medianas = getLatenciesPerMethod(metricsRest, metricsGrpc, None, None)
+    # medianas = getLatenciesPerMethod(metricsRest, metricsGrpc, metricsGraphql, metricsSoap)
+    medianas = getLatenciesPerMethod(metricsRest, metricsGrpc, None, metricsSoap)
 
     print(metricsRest)
     print(metricsGrpc)
     # print(metricsGraphql)
-    # print(metricsSoap)
+    print(metricsSoap)
 
     updateSheet(sheet, metricsRest, 3, 17)
     updateSheet(sheet, metricsGrpc, 21, 35)
     # updateSheet(sheet, metricsGraphql, 39, 53)
-    # updateSheet(sheet, metricsSoap, 57, 71)
+    updateSheet(sheet, metricsSoap, 57, 71)
 
     updateSheetPerMethod(sheet, medianas[0], 3, 6)
     updateSheetPerMethod(sheet, medianas[1], 10, 13)

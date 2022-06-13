@@ -17,7 +17,7 @@ public class PlaylistServerImpl implements PlaylistServer{
     }
 
     @Override
-    public Object[] getPlaylistByMuscica(Song s) throws IOException, URISyntaxException {
+    public Object[] getPlaylistByMusica(Song s) throws IOException, URISyntaxException {
         return PlaylistDao.getInstance().getPlaylistByMusica(s).toArray();
     }
 

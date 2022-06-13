@@ -68,23 +68,23 @@ function cargaMedia() {
 function cargaAlta() {
     const responseUsers = http.post('http://127.0.0.1:9876/user', getUsuariosbody, { headers: { 'Content-Type': 'text/xml' } })
     const responseSongs = http.post('http://127.0.0.1:9876/song', getSongsBody, { headers: { 'Content-Type': 'text/xml' } })
-    const responsePlaylists = http.post('http://127.0.0.1:9876/playlist', getSongsBody, { headers: { 'Content-Type': 'text/xml' } })
+    const responsePlaylists = http.post('http://127.0.0.1:9876/playlist', getPlaylistsBody, { headers: { 'Content-Type': 'text/xml' } })
 
     check(responseUsers, {
         'responseUsers OK': (r) => {
-            return r && r.status === grpc.StatusOK
+            return r && r.status === 200
         }
     })
 
     check(responsePlaylists, {
         'responsePlaylists OK': (r) => {
-            return r && r.status === grpc.StatusOK
+            return r && r.status === 200
         }
     })
 
     check(responseSongs, {
         'responseSongs OK': (r) => {
-            return r && r.status === grpc.StatusOK
+            return r && r.status === 200
         }
     })
 }
