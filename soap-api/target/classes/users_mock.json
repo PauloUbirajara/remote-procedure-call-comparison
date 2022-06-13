@@ -1,0 +1,115 @@
+ [
+  {
+    "id": 0,
+    "name": "Einar",
+    "username": "Minerva55",
+    "playlists": [
+      {
+        "id": 0,
+        "name": "Zimbabwe",
+        "songs": [
+          0,
+          2,
+          3
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Strategist",
+        "songs": [2]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Kylie",
+    "username": "Shannon_Durgan",
+    "playlists": [
+      {
+        "id": 2,
+        "name": "Analyst",
+        "songs": [
+          1,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Cambridgeshire",
+        "songs": [
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Kyla",
+    "username": "Bethany_Lakin",
+    "playlists": [
+      {
+        "id": 4,
+        "name": "Centralized",
+        "songs": [
+          2,
+          3,
+          12,
+          13
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Driver",
+        "songs": [
+          0,
+          6,
+          9
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Shaniya",
+    "username": "Karine.Cruickshank",
+    "playlists": [
+      {
+        "id": 4,
+        "name": "Avon",
+        "songs": [
+          8
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Implemented",
+        "songs": []
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Jacynthe",
+    "username": "Queen.Ferry",
+    "playlists": [
+      {
+        "id": 6,
+        "name": "Granite",
+        "songs": [
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Generic",
+        "songs": []
+      }
+    ]
+  }
+   ]
