@@ -87,7 +87,7 @@ function cargaAlta() {
 const cargas = {
 	baixa: cargaBaixa,
 	media: cargaMedia,
-	alta: cargaMedia
+	alta: cargaAlta
 }
 
 export default () => {
