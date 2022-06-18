@@ -121,9 +121,7 @@ def getMetricsGraphql():
     metrics = []
 
     for i in range(0, 9):
-        #metricsAux = loadJSON("../load-test/graphqlResults/graphql" + str(i + 1))
-        #metrics.append(metricsAux["metrics"]["graphql_req_duration"])
-        metricsAux = loadJSON("../load-test/soapResults/soap" + str(i + 1))
+        metricsAux = loadJSON("../load-test/graphqlResults/graphql" + str(i + 1))
         metrics.append(metricsAux["metrics"]["http_req_duration"])
 
     return metrics
