@@ -98,41 +98,13 @@ def updateSheetPerMethod(sheet, metrics, startLine, endLine):
         sheet.update_cells(cellList)
 
 
-def getMetricsRest():
+def getMetricsFromRawData(protocolPathTemplate, metricName):
     metrics = []
+    protocolPathTemplate = "../load-test/" + protocolPathTemplate
 
     for i in range(0, 9):
-        metricsAux = loadJSON("../load-test/restResults/rest" + str(i + 1))
-        metrics.append(metricsAux["metrics"]["http_req_duration"])
-
-    return metrics
-
-
-def getMetricsGrpc():
-    metrics = []
-
-    for i in range(0, 9):
-        metricsAux = loadJSON("../load-test/grpcResults/grpc" + str(i + 1))
-        metrics.append(metricsAux["metrics"]["grpc_req_duration"])
-
-    return metrics
-
-def getMetricsGraphql():
-    metrics = []
-
-    for i in range(0, 9):
-        metricsAux = loadJSON("../load-test/graphqlResults/graphql" + str(i + 1))
-        metrics.append(metricsAux["metrics"]["http_req_duration"])
-
-    return metrics
-
-
-def getMetricsSoap():
-    metrics = []
-
-    for i in range(0, 9):
-        metricsAux = loadJSON("../load-test/soapResults/soap" + str(i + 1))
-        metrics.append(metricsAux["metrics"]["http_req_duration"])
+        metricsAux = loadJSON(protocolPathTemplate + str(i + 1))
+        metrics.append(metricsAux["metrics"][metricName])
 
     return metrics
 
@@ -167,10 +139,10 @@ if __name__ == '__main__':
     print("Metrics: ")
     print("Min", "Max", "Mean", "Median", "Percentile(95)")
 
-    metricsRest = getMetricsRest()
-    metricsGrpc = getMetricsGrpc()
-    metricsGraphql = getMetricsGraphql()
-    metricsSoap = getMetricsSoap()
+    metricsRest = getMetricsFromRawData("restResults/rest", "http_req_duration")
+    metricsGrpc = getMetricsFromRawData("grpcResults/grpc", "grpc_req_duration")
+    metricsGraphql = getMetricsFromRawData("graphqlResults/graphql", "http_req_duration")
+    metricsSoap = getMetricsFromRawData("soapResults/soap", "http_req_duration")
 
     medianas = getLatenciesPerMethod(metricsRest, metricsGrpc, metricsGraphql, metricsSoap)
 
