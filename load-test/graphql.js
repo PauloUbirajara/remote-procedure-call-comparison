@@ -1,96 +1,111 @@
-import http from 'k6/http'
-import { check, sleep } from 'k6'
+import http from 'k6/http';
+import { check, sleep } from 'k6';
 
-const load = __ENV.LOADPROFILE
-const maxUsers = __ENV.MAX_USERS
+const load = __ENV.LOADPROFILE;
+const maxUsers = __ENV.MAX_USERS;
 
 export const options = {
-	vus: maxUsers, // Número máximo de usuário concorrentes
-	duration: '3m' // Duração máxima do teste (pode ser que o teste termine mais cedo devido o limite de iterações)
-}
+    scenarios: {
+        contacts: {
+            executor: 'constant-vus',
+            vus: maxUsers,
+            duration: '10s',
+            // duration: '3m',
+            gracefulStop: '0s'
+        }
+    }
+};
+
+const queryGetAllUser = 'getAllUsers { name id age playlists { id name musics { id artist name } } }';
+const queryGetAllPlaylists = 'getAllPlaylists { id musics { name artist id } name }';
+const queryGetAllSongs = 'getAllSongs { id name artist }';
+const URL = 'http://localhost:4000/'
 
 function cargaBaixa() {
-	const queryGetAllUser = "{ findAllPeople{ id name age playlists{ id name songs{ id name artist } } } }"
+    const responseUsers = http.post(
+        URL,
+        JSON.stringify({ query: queryGetAllUser }),
+        {}
+    );
 
-	const responseUsers = http.post("http://localhost:8080/graphql", JSON.stringify({ query: queryGetAllUser }), {
-
-	})
-
-	check(responseUsers, {
-		'responseUsers OK': (r) => {
-			return r && r.status === 200
-		}
-	})
+    check(responseUsers, {
+        URL: (r) => {
+            return r && r.status === 200;
+        }
+    });
 }
 
 function cargaMedia() {
-	const queryGetAllUser = "{ findAllPeople{ id name age playlists{ id name songs{ id name artist } } } }"
-	const queryGetAllPlaylists = "{ findAllPlaylists{ id name } }"
+    const responseUsers = http.post(
+        URL,
+        JSON.stringify({ query: queryGetAllUser }),
+        {}
+    );
 
-	const responseUsers = http.post("http://localhost:8080/graphql", JSON.stringify({ query: queryGetAllUser }), {
+    const responsePlaylists = http.post(
+        URL,
+        JSON.stringify({ query: queryGetAllPlaylists }),
+        {}
+    );
 
-	})
+    check(responseUsers, {
+        'responseUsers OK': (r) => {
+            return r && r.status === 200;
+        }
+    });
 
-	const responsePlaylists = http.post("http://localhost:8080/graphql", JSON.stringify({ query: queryGetAllPlaylists }), {
-
-	})
-
-	check(responseUsers, {
-		'responseUsers OK': (r) => {
-			return r && r.status === 200
-		}
-	})
-
-	check(responsePlaylists, {
-		'responsePlaylists OK': (r) => {
-			return r && r.status === 200
-		}
-	})
+    check(responsePlaylists, {
+        'responsePlaylists OK': (r) => {
+            return r && r.status === 200;
+        }
+    });
 }
 
 function cargaAlta() {
-	const queryGetAllUser = "{ findAllPeople{ id name age playlists{ id name songs{ id name artist } } } }"
-	const queryGetAllPlaylists = "{ findAllPlaylists{ id name } }"
-	const queryGetAllSongs = "{ findAllSongs{ id name artist } }"
+    const responseUsers = http.post(
+        URL,
+        JSON.stringify({ query: queryGetAllUser }),
+        {}
+    );
 
-	const responseUsers = http.post("http://localhost:8080/graphql", JSON.stringify({ query: queryGetAllUser }), {
+    const responsePlaylists = http.post(
+        URL,
+        JSON.stringify({ query: queryGetAllPlaylists }),
+        {}
+    );
 
-	})
+    const responseSongs = http.post(
+        URL,
+        JSON.stringify({ query: queryGetAllSongs }),
+        {}
+    );
 
-	const responsePlaylists = http.post("http://localhost:8080/graphql", JSON.stringify({ query: queryGetAllPlaylists }), {
+    check(responseUsers, {
+        'responseUsers OK': (r) => {
+            return r && r.status === 200;
+        }
+    });
 
-	})
+    check(responsePlaylists, {
+        'responsePlaylists OK': (r) => {
+            return r && r.status === 200;
+        }
+    });
 
-	const responseSongs = http.post("http://localhost:8080/graphql", JSON.stringify({ query: queryGetAllSongs }), {
-
-	})
-
-	check(responseUsers, {
-		'responseUsers OK': (r) => {
-			return r && r.status === 200
-		}
-	})
-
-	check(responsePlaylists, {
-		'responsePlaylists OK': (r) => {
-			return r && r.status === 200
-		}
-	})
-
-	check(responseSongs, {
-		'responseSongs OK': (r) => {
-			return r && r.status === 200
-		}
-	})
+    check(responseSongs, {
+        'responseSongs OK': (r) => {
+            return r && r.status === 200;
+        }
+    });
 }
 
 const cargas = {
-	baixa: cargaBaixa,
-	media: cargaMedia,
-	alta: cargaAlta
-}
+    baixa: cargaBaixa,
+    media: cargaMedia,
+    alta: cargaAlta
+};
 
 export default () => {
-	cargas[load]()
-	sleep(1)
-}
+    cargas[load]();
+    sleep(1);
+};
