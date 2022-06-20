@@ -1,49 +1,49 @@
 {
     "root_group": {
-        "name": "",
-        "path": "",
-        "id": "d41d8cd98f00b204e9800998ecf8427e",
         "groups": {},
         "checks": {
                 "responseUsers OK": {
+                    "name": "responseUsers OK",
                     "path": "::responseUsers OK",
                     "id": "01c2e23b6544cd3dd059e8122d3d2b8b",
-                    "passes": 9000,
-                    "fails": 0,
-                    "name": "responseUsers OK"
+                    "passes": 8803,
+                    "fails": 0
                 },
                 "responsePlaylists OK": {
                     "name": "responsePlaylists OK",
                     "path": "::responsePlaylists OK",
                     "id": "9f74c8d66f6a7c84373a93d5a18fb5b1",
-                    "passes": 9000,
+                    "passes": 8803,
                     "fails": 0
                 },
                 "responseMusics OK": {
                     "name": "responseMusics OK",
                     "path": "::responseMusics OK",
                     "id": "8843bd457f14e0d08aff9abb746c57e6",
-                    "passes": 9000,
+                    "passes": 8803,
                     "fails": 0
                 }
-            }
+            },
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e"
     },
     "metrics": {
         "iterations": {
-            "count": 9000,
-            "rate": 49.81372699207452
+            "rate": 48.65979644216947,
+            "count": 8803
         },
         "grpc_req_duration": {
-            "med": 0.5404,
-            "max": 3.251,
-            "p(90)": 1.0785,
-            "p(95)": 1.1142050000000001,
-            "avg": 0.6503898814814778,
-            "min": 0
+            "p(95)": 8.760559999999998,
+            "avg": 4.66013454504144,
+            "min": 0,
+            "med": 4.3935,
+            "max": 51.8359,
+            "p(90)": 7.884860000000001
         },
         "checks": {
+            "passes": 26409,
             "fails": 0,
-            "passes": 27000,
             "value": 1
         },
         "vus": {
@@ -57,20 +57,20 @@
             "max": 50
         },
         "data_sent": {
-            "count": 3232257,
-            "rate": 17890.08530735798
+            "count": 3199053,
+            "rate": 17683.206609986548
         },
         "data_received": {
-            "count": 13700610,
-            "rate": 75830.93846276512
+            "count": 12955919,
+            "rate": 71615.62890619515
         },
         "iteration_duration": {
-            "p(95)": 1005.91126,
-            "avg": 1003.6450753222227,
-            "min": 1000.9687,
-            "med": 1003.29765,
-            "max": 1043.6868,
-            "p(90)": 1005.29036
+            "min": 1002.4239,
+            "med": 1024.2458,
+            "max": 1161.1483,
+            "p(90)": 1042.68596,
+            "p(95)": 1052.0042799999999,
+            "avg": 1025.8501566511432
         }
     }
 }

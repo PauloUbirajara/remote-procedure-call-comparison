@@ -1,4 +1,49 @@
 {
+    "metrics": {
+        "iteration_duration": {
+            "p(90)": 1029.1179399999999,
+            "p(95)": 1036.22158,
+            "avg": 1018.6414925804605,
+            "min": 1002.0448,
+            "med": 1016.2851,
+            "max": 1121.2644
+        },
+        "iterations": {
+            "count": 8855,
+            "rate": 48.91359021819228
+        },
+        "grpc_req_duration": {
+            "p(95)": 7.99751,
+            "avg": 4.158131818181804,
+            "min": 0,
+            "med": 3.855,
+            "max": 50.3485,
+            "p(90)": 6.8604
+        },
+        "checks": {
+            "passes": 17710,
+            "fails": 0,
+            "value": 1
+        },
+        "vus": {
+            "value": 5,
+            "min": 5,
+            "max": 50
+        },
+        "vus_max": {
+            "min": 50,
+            "max": 50,
+            "value": 50
+        },
+        "data_sent": {
+            "count": 2495494,
+            "rate": 13784.705918459349
+        },
+        "data_received": {
+            "count": 4820263,
+            "rate": 26626.35450320883
+        }
+    },
     "root_group": {
         "name": "",
         "path": "",
@@ -6,64 +51,19 @@
         "groups": {},
         "checks": {
                 "responseUsers OK": {
-                    "passes": 9000,
-                    "fails": 0,
                     "name": "responseUsers OK",
                     "path": "::responseUsers OK",
-                    "id": "01c2e23b6544cd3dd059e8122d3d2b8b"
+                    "id": "01c2e23b6544cd3dd059e8122d3d2b8b",
+                    "passes": 8855,
+                    "fails": 0
                 },
                 "responsePlaylists OK": {
-                    "id": "9f74c8d66f6a7c84373a93d5a18fb5b1",
-                    "passes": 9000,
-                    "fails": 0,
                     "name": "responsePlaylists OK",
-                    "path": "::responsePlaylists OK"
+                    "path": "::responsePlaylists OK",
+                    "id": "9f74c8d66f6a7c84373a93d5a18fb5b1",
+                    "passes": 8855,
+                    "fails": 0
                 }
             }
-    },
-    "metrics": {
-        "vus_max": {
-            "value": 50,
-            "min": 50,
-            "max": 50
-        },
-        "data_sent": {
-            "count": 2518135,
-            "rate": 13948.587567989855
-        },
-        "data_received": {
-            "count": 5312815,
-            "rate": 29429.027935368842
-        },
-        "iteration_duration": {
-            "avg": 1002.8746651333342,
-            "min": 1000.5509,
-            "med": 1002.6452999999999,
-            "max": 1037.2862,
-            "p(90)": 1004.06094,
-            "p(95)": 1004.46689
-        },
-        "iterations": {
-            "rate": 49.85327955487243,
-            "count": 9000
-        },
-        "grpc_req_duration": {
-            "med": 0.5329,
-            "max": 2.9993,
-            "p(90)": 1.0497,
-            "p(95)": 1.0723,
-            "avg": 0.5634317111111121,
-            "min": 0
-        },
-        "checks": {
-            "fails": 0,
-            "passes": 18000,
-            "value": 1
-        },
-        "vus": {
-            "value": 50,
-            "min": 50,
-            "max": 50
-        }
     }
 }

@@ -1,50 +1,19 @@
 {
-    "root_group": {
-        "name": "",
-        "path": "",
-        "id": "d41d8cd98f00b204e9800998ecf8427e",
-        "groups": {},
-        "checks": {
-                "responseUsers OK": {
-                    "id": "01c2e23b6544cd3dd059e8122d3d2b8b",
-                    "passes": 1800,
-                    "fails": 0,
-                    "name": "responseUsers OK",
-                    "path": "::responseUsers OK"
-                }
-            }
-    },
     "metrics": {
-        "data_sent": {
-            "count": 356721,
-            "rate": 1977.165918264371
-        },
-        "data_received": {
-            "count": 648975,
-            "rate": 3597.016300710135
-        },
-        "iteration_duration": {
-            "med": 1002.1691000000001,
-            "max": 1012.4375,
-            "p(90)": 1003.4307,
-            "p(95)": 1003.7342,
-            "avg": 1002.324312499999,
-            "min": 1000.0844
-        },
         "iterations": {
-            "count": 1800,
-            "rate": 9.976700706927453
+            "rate": 9.842907086770952,
+            "count": 1780
         },
         "grpc_req_duration": {
-            "avg": 0.5531933333333328,
-            "min": 0,
-            "med": 0.5313,
-            "max": 1.9947,
-            "p(90)": 1.055,
-            "p(95)": 1.08282
+            "avg": 4.911602415730334,
+            "min": 0.5535,
+            "med": 4.41915,
+            "max": 24.5385,
+            "p(90)": 7.919730000000004,
+            "p(95)": 9.002055
         },
         "checks": {
-            "passes": 1800,
+            "passes": 1780,
             "fails": 0,
             "value": 1
         },
@@ -57,6 +26,37 @@
             "value": 10,
             "min": 10,
             "max": 10
+        },
+        "data_sent": {
+            "count": 352994,
+            "rate": 1951.9590697683288
+        },
+        "data_received": {
+            "count": 561481,
+            "rate": 3104.8344460602475
+        },
+        "iteration_duration": {
+            "avg": 1015.3110529775277,
+            "min": 1002.6217,
+            "med": 1015.0901,
+            "max": 1061.7803,
+            "p(90)": 1021.13979,
+            "p(95)": 1023.477125
         }
+    },
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+                "responseUsers OK": {
+                    "fails": 0,
+                    "name": "responseUsers OK",
+                    "path": "::responseUsers OK",
+                    "id": "01c2e23b6544cd3dd059e8122d3d2b8b",
+                    "passes": 1780
+                }
+            }
     }
 }
