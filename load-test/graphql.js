@@ -9,8 +9,7 @@ export const options = {
 		contacts: {
 			executor: 'constant-vus',
 			vus: maxUsers,
-			duration: '10s',
-			// duration: '3m',
+			duration: '3m',
 			gracefulStop: '0s'
 		}
 	}
